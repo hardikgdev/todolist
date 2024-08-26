@@ -2,9 +2,19 @@
 
 import { useState } from "react"
 import { Button } from "../ui/button"
-import { MenuIcon, BellIcon } from "lucide-react"
+import { MenuIcon, BellIcon, HomeIcon, BarChartIcon, UsersIcon, SettingsIcon } from "lucide-react"
 import { Image } from "@nextui-org/react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { cn } from "@/lib/utils"
+import { ScrollArea } from "../ui/scroll-area"
+import Link from "next/link"
+
+const navItems = [
+    { icon: HomeIcon, label: "Dashboard", href: "#" },
+    { icon: BarChartIcon, label: "Analytics", href: "#" },
+    { icon: UsersIcon, label: "Customers", href: "#" },
+    { icon: SettingsIcon, label: "Settings", href: "#" },
+]
 
 export default function DashboardLayout() {
     const [isExpanded, setIsExpanded] = useState(false)
@@ -43,12 +53,45 @@ export default function DashboardLayout() {
                         </div>
                     ) : (
                         <div className="ml-auto flex items-center space-x-4">
-                            <Button>Sign Up</Button>
+                            <Button className="hidden sm:flex">Sign Up</Button>
                             <Button>Sign In</Button>
                         </div>
                     )
                 }
             </header>
+
+            <div className="flex flex-1 overflow-hidden">
+                <aside className={cn(
+                    "border-r bg-black transition-all duration-300",
+                    isExpanded ? "w-64" : "w-[70px]"
+                )}>
+                    <ScrollArea className="flex h-screen flex-col">
+                        <nav className="flex flex-col gap-2 p-2">
+                            {navItems.map((item) => (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className={cn(
+                                        "flex items-center space-x-2 rounded-lg px-2 py-2 hover:bg-white",
+                                        !isExpanded && "justify-center"
+                                    )}
+                                >
+                                    <item.icon className="h-5 w-5 shrink-0" />
+                                    <span
+                                        className={cn(
+                                            "text-sm transition-opacity",
+                                            isExpanded ? "opacity-100" : "opacity-0"
+                                        )}
+                                    >
+                                        {isExpanded ? item.label : "" }
+                                    </span>
+                                </Link>
+                            ))}
+                        </nav>
+                    </ScrollArea>
+                </aside>
+            
+            </div>
         </div>
     )
 }
