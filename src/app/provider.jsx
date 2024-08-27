@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 
 export function Providers({ children, ...props }) {
   const pathname = usePathname();
-  const navPaths = ['/'];
+  const navPaths = ['/', '/todo'];
 
   const showNavbar = navPaths.includes(pathname);
 

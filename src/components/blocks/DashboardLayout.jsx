@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "../ui/button"
-import { MenuIcon, BellIcon, HomeIcon, BarChartIcon, UsersIcon, SettingsIcon } from "lucide-react"
+import { MenuIcon, BellIcon, HomeIcon, BarChartIcon, UsersIcon, SettingsIcon, ListTodo } from "lucide-react"
 import { Image } from "@nextui-org/react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
@@ -10,8 +10,8 @@ import { ScrollArea } from "../ui/scroll-area"
 import Link from "next/link"
 
 const navItems = [
-    { icon: HomeIcon, label: "Dashboard", href: "#" },
-    { icon: BarChartIcon, label: "Analytics", href: "#" },
+    { icon: HomeIcon, label: "Dashboard", href: "/" },
+    { icon: ListTodo, label: "ToDo", href: "/todo" },
     { icon: UsersIcon, label: "Customers", href: "#" },
     { icon: SettingsIcon, label: "Settings", href: "#" },
 ]
@@ -72,7 +72,7 @@ export default function DashboardLayout({children}) {
                                     key={item.label}
                                     href={item.href}
                                     className={cn(
-                                        "flex items-center space-x-2 rounded-lg px-2 py-2 hover:bg-white",
+                                        "flex items-center space-x-2 rounded-lg px-2 py-2 hover:bg-gray-900",
                                         !isExpanded && "justify-center"
                                     )}
                                 >
