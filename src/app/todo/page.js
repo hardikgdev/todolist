@@ -2,21 +2,30 @@ import DashboardLayout from "@/components/blocks/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { FilterIcon, PlusIcon } from "lucide-react";
 import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import AddNew from "./components/AddNew";
 
 export default function ToDo() {
   return (
     <main className="flex flex-1 flex-col overflow-hidden bg-verylight-org">
     <div className="flex h-14 items-center justify-between border-b bg-primary px-4 lg:px-6">
-      <h1 className="text-2xl font-semibold">Welcome to Your Dashboard</h1>
+      <h1 className="text-2xl font-semibold">Welcome to ToDo Dashboard</h1>
       <div className="flex items-center space-x-2">
         <Button size="sm" variant="outline">
           <FilterIcon className="mr-2 h-4 w-4" />
           Filter
         </Button>
-        <Button size="sm" variant="outline">
-          <PlusIcon className="mr-2 h-4 w-4" />
-          Add New
-        </Button>
+        <AddNew />
       </div>
     </div>
     <div className="flex-1 overflow-y-auto p-4 lg:p-6">
