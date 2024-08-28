@@ -56,7 +56,7 @@ export default function DashboardLayout({children}) {
                     ) : (
                         <div className="ml-auto flex items-center space-x-4">
                             <Button className="hidden sm:flex" onClick={(() => router.push('/signup'))}>Sign Up</Button>
-                            <Button>Sign In</Button>
+                            <Button onClick={(() => router.push('/signin'))}>Sign In</Button>
                         </div>
                     )
                 }
