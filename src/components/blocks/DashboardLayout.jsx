@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 import { ScrollArea } from "../ui/scroll-area"
 import Link from "next/link"
+import { useRouter } from 'next/navigation'
 
 const navItems = [
     { icon: HomeIcon, label: "Dashboard", href: "/" },
@@ -19,6 +20,7 @@ const navItems = [
 export default function DashboardLayout({children}) {
     const [isExpanded, setIsExpanded] = useState(false)
     const [isLogged, setIsLogged] = useState(false)
+    const router = useRouter()
 
     return (
         <div className="flex h-screen flex-col">
@@ -53,7 +55,7 @@ export default function DashboardLayout({children}) {
                         </div>
                     ) : (
                         <div className="ml-auto flex items-center space-x-4">
-                            <Button className="hidden sm:flex">Sign Up</Button>
+                            <Button className="hidden sm:flex" onClick={(() => router.push('/signup'))}>Sign Up</Button>
                             <Button>Sign In</Button>
                         </div>
                     )
