@@ -15,13 +15,11 @@ import NotifDropDown from "./components/NotifDropDown"
 const navItems = [
     { icon: HomeIcon, label: "Dashboard", href: "/" },
     { icon: ListTodo, label: "ToDo", href: "/todo" },
-    { icon: UsersIcon, label: "Customers", href: "#" },
-    { icon: SettingsIcon, label: "Settings", href: "#" },
 ]
 
 export default function DashboardLayout({children}) {
     const [isExpanded, setIsExpanded] = useState(false)
-    const [isLogged, setIsLogged] = useState(true)
+    const [isLogged, setIsLogged] = useState(false)
     const router = useRouter()
 
     return (

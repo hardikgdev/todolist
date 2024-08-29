@@ -11,8 +11,7 @@ export default function ToDo() {
           <AddNew />
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto p-4 lg:p-6">
-        <p className="mb-4 text-gray-600">This is where your main content would go.</p>
+      <div className="flex-1 overflow-y-auto p-4 lg:p-6">\
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((i) => (
             <div key={i} className="rounded-lg border bg-white p-4 shadow">

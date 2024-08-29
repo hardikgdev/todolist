@@ -1,14 +1,6 @@
-import DashboardLayout from "@/components/blocks/DashboardLayout";
-import { Button } from "@/components/ui/button";
-import { FilterIcon, PlusIcon } from "lucide-react";
-import Image from "next/image";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card"
 
 export default function Home() {

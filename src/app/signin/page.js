@@ -9,11 +9,13 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle, Github, Mail } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { motion } from "framer-motion"
+import { useRouter } from 'next/navigation'
 
 export default function Component() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
+  const router = useRouter()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -186,9 +188,7 @@ export default function Component() {
             </Link>
             <p className="text-gray-400">
               Don't have an account?{" "}
-              <Link href="/signup" className="font-medium text-primary hover:underline">
-                Sign up
-              </Link>
+              <Button variant="link" className="font-medium text-primary hover:underline" onClick={(() => router.push('/signup'))}>Sign Up</Button>
             </p>
           </motion.div>
         </motion.div>
