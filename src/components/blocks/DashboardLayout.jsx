@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import { ScrollArea } from "../ui/scroll-area"
 import Link from "next/link"
 import { useRouter } from 'next/navigation'
+import ProfileDropDown from "./components/ProfileDropDown"
 
 const navItems = [
     { icon: HomeIcon, label: "Dashboard", href: "/" },
@@ -45,13 +46,7 @@ export default function DashboardLayout({children}) {
                                 <span className="sr-only">Notifications</span>
                                 <span className="absolute right-0 top-0 h-2 w-2 rounded-full bg-red-600"></span>
                             </Button>
-                            <Button variant="ghost" size="icon" className="rounded-full">
-                                <Avatar>
-                                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                                    <AvatarFallback>CN</AvatarFallback>
-                                </Avatar>
-                                <span className="sr-only">User menu</span>
-                            </Button>
+                            <ProfileDropDown />
                         </div>
                     ) : (
                         <div className="ml-auto flex items-center space-x-4">
