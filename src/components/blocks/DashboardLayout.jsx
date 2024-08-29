@@ -10,6 +10,7 @@ import { ScrollArea } from "../ui/scroll-area"
 import Link from "next/link"
 import { useRouter } from 'next/navigation'
 import ProfileDropDown from "./components/ProfileDropDown"
+import NotifDropDown from "./components/NotifDropDown"
 
 const navItems = [
     { icon: HomeIcon, label: "Dashboard", href: "/" },
@@ -20,7 +21,7 @@ const navItems = [
 
 export default function DashboardLayout({children}) {
     const [isExpanded, setIsExpanded] = useState(false)
-    const [isLogged, setIsLogged] = useState(false)
+    const [isLogged, setIsLogged] = useState(true)
     const router = useRouter()
 
     return (
@@ -41,11 +42,7 @@ export default function DashboardLayout({children}) {
                 {
                     isLogged ? (
                         <div className="ml-auto flex items-center space-x-4">
-                            <Button variant="ghost" size="icon" className="relative">
-                                <BellIcon className="h-5 w-5" />
-                                <span className="sr-only">Notifications</span>
-                                <span className="absolute right-0 top-0 h-2 w-2 rounded-full bg-red-600"></span>
-                            </Button>
+                            <NotifDropDown />
                             <ProfileDropDown />
                         </div>
                     ) : (
@@ -56,7 +53,6 @@ export default function DashboardLayout({children}) {
                     )
                 }
             </header>
-
             <div className="flex flex-1 overflow-hidden">
                 <aside className={cn(
                     "border-r bg-black transition-all duration-300",
