@@ -9,8 +9,11 @@ import { AlertCircle, Github, Mail } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { motion } from "framer-motion"
 import { useRouter } from 'next/navigation'
+import { getCsrfToken } from "next-auth/react"
 
-export default function Component() {
+export default function Component({
+  csrfToken,
+}) {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -123,7 +126,8 @@ export default function Component() {
               <span className="bg-gray-800 px-2 text-gray-400">Or continue with</span>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6" method="post" action="/api/auth/signin/email">
+            <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             {error && (
               <Alert variant="destructive">
                 <AlertCircle className="h-4 w-4" />
@@ -207,4 +211,11 @@ export default function Component() {
       </div>
     </div>
   )
+}
+
+export async function getServerSidePropss(context) {
+  const csrfToken = await getCsrfToken(context)
+  return {
+    props: { csrfToken },
+  }
 }

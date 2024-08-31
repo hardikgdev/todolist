@@ -1,7 +1,13 @@
+"use client"
 import AddNew from "./components/AddNew";
 import SortButton from "./components/SortButton";
+import { useSession, signIn, signOut } from "next-auth/react"
+import { useRouter } from 'next/navigation'
 
 export default function ToDo() {
+  const { data: session } = useSession()
+  const router = useRouter()
+  if (!session) router.push('/signup')
   return (
     <main className="flex flex-1 flex-col overflow-hidden bg-verylight-org">
       <div className="flex h-14 items-center justify-between border-b bg-primary px-4 lg:px-6">
