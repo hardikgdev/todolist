@@ -27,7 +27,7 @@ The goal of this project is to create an engaging platform for the orgainzations
 
 Overall, this project represents a significant effort to bridge the gap between orgainzation owner and employe to mangae the full website and all employe.
 
-![img1](https://github.com/hardikgdev/certificates/blob/main/public/1.png)
-![img2](https://github.com/hardikgdev/certificates/blob/main/public/2.png)
-![img3](https://github.com/hardikgdev/certificates/blob/main/public/3.png)
-![img4](https://github.com/hardikgdev/certificates/blob/main/public/4.png)
+![img1](https://github.com/hardikgdev/todolist/blob/master/public/1.png)
+![img2](https://github.com/hardikgdev/todolist/blob/master/public/2.png)
+![img3](https://github.com/hardikgdev/todolist/blob/master/public/3.png)
+![img4](https://github.com/hardikgdev/todolist/blob/master/public/4.png)
